@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+     
+
+   
+
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/0990b594f8.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!--Navigation Bar -->
+    <div class ="topnav ">
+      <a class="logo" >Buybes</a>
+     
+      <a href="#about"><i class ="fas fa-shopping-bag"></i> Orders</a>
+      <a href="#contact"> <i class="fas fa-shopping-cart"></i> Cart</a>
+      <input type="text" placeholder="Search..">
+      <button ><i class = "fa fa-search" aria-hidden="true"></i></button>
+      
+
+  </div>
+  <!-- Menubar-->
+  <div class="menubar">
+      <div class="dropdown">
+      <button class="dropbtn"> <b>All</b> 
+            <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+      </div>
+      <a href="/about.html"><i class="fas fa-home"></i> About Us</a>
+      <a href="#"><i class="fas fa-chart-line"></i> Popular Items</a>
+      <a href="#"><i class = "fa fa-th" aria-hidden="true"></i> Articles</a>
+      <div class="dropdown">
+          <button class="dropbtn"><i class ="fas fa-hands-helping"></i> <b>Customer Services</b> 
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+          </div>
+     
+      
+          
+
+
+
+  </div>
+ 
+   <!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    
+    <img src="{% static 'images/clothes.jpeg' %}" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="{% static 'images/technology.jpeg' %}" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="{% static 'images/covidprotection.jpeg' %}" style="width:100%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+{% block content %}
+{% endblock %}
+
+
+    <script src="{% static 'js/script.js' %}" ></script>
+
+    
+  </body>
+</html>

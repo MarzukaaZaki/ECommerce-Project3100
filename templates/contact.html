@@ -1,0 +1,36 @@
+<h1>
+    This is contact page!
+</h1>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus inventore sint maiores voluptates vero porro unde deleniti commodi pariatur?
+</p>
+<p>
+    {{ my_text }}
+    {{ my_number }}
+    
+</p>
+<ul>
+    <li>Item1</li>
+    <li>Item2</li>
+    <li>Item3</li>
+</ul>
+<ul>
+    {% for each_item in my_list %}
+      <li>{{each_item}} </li>
+        
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for each_item in my_list %}
+    {% if each_item == 122 %}
+      <li>{{forloop.counter}}-{{each_item|add:20}}</li>
+    {% elif each_item > 122 %}
+    <li>{{forloop.counter}}-{{each_item|add:2}}</li>
+    {% else %}
+    <li>{{forloop.counter}}-{{each_item}}</li>
+    {% endif %}
+    
+        
+    {% endfor %}
+</ul>

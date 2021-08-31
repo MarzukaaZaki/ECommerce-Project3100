@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>This is the Product Detail Page</h1>
+<h3>Here's your product...</h3>
+{% if object.price < 100 %}
+<h3>Product Name : {{object.product_name}} Description : {{object.description}} Price : {{object.price}} </h3>
+{% else %}
+<h3>
+    It's a bit pricey.
+    Product Name : {{object.product_name}} Description : {{object.description}} Price : {{object.price}}
+</h3>
+{% endif %}
+
+
+
+{% endblock %}
