@@ -2,7 +2,10 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 from django.db.models.fields import DateTimeField
 # Create your models here.
+# Manager of the custom user model
+# Uses email as the unique identifier instead of username
 class MyAccountManager(BaseUserManager):
+    # creates a user and saves his/her credentials
     def create_user(self,email,username,first_name, last_name, password = None):
         if not email:
             raise ValueError("A user must have an email address")
@@ -58,7 +61,7 @@ class Account(AbstractBaseUser):
     # methods
     def __str__(self):
         return self.email
-
+    #    
     def has_perm(self,perm,obj = None):
         return self.is_admin
 

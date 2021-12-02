@@ -74,10 +74,12 @@ body {
 /*Cards to show products*/
 .heading{
 box-shadow: 0 2px 4px 0 rgba(138, 131, 131, 0.2);
-background-color: #ebd3d5;
+background-color:rgb(245, 243, 243);
 color: #AA2E37;
-font-size: 16px;
-padding:7px
+font-weight: 500;
+font-size: 20px;
+padding:7px;
+
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
