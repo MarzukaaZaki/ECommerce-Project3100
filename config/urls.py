@@ -27,6 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',include('shop.urls'),name ='home'),
     
+    
+    
 ] 
 
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

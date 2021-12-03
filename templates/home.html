@@ -7,10 +7,10 @@
 <h1 class = "heading"> SHOP BY CATEGORY</h1>
       <div style="padding: 70px;">
         <div class="category-row">
-          {% for category in categories %}
+          {% for item in categories %}
           <div class="category-column">
-            <a href="{% url 'product_by_category' category.slug %}"><img src="{{category.category_img.url}}" alt="{{category.category_name}}" style="height: 120px;width:fit-content" class = "category-image"></a>
-            <figcaption class ="category-figcaption">{{category.category_name}}</figcaption>
+            <a href="{{ item.get_absolute_url }}"><img src="{{item.category_img.url}}" alt="{{item.category_name}}" style="height: 120px;width:fit-content" class = "category-image"></a>
+            <figcaption class ="category-figcaption">{{item.category_name}}</figcaption>
           </div>
           {% endfor %}
 
@@ -22,7 +22,7 @@
 
     
        <!-- Show product cards -->
-<h1 class = "heading"> AVAILABLE NOW</h1>
+<h1 class = "heading">{% if category %}{{category.category_name}} {% else %} AVAILABLE NOW {% endif %}</h1>
 <div style="padding: 70px;">
 
     <div class="row">

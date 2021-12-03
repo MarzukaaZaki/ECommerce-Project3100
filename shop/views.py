@@ -5,19 +5,23 @@ from django.http import HttpResponse
 
 # Create your views here.
 def homePageView(response, category_slug = None):
-    categories = None
     products = None
-    if category_slug!=None:
+    # if the user clicks on a category
+    if category_slug:
         #return categories or show Error 404
-        category_slug = get_object_or_404(Category,slug =category_slug)
+        categories = get_object_or_404(Category,slug =category_slug)
 
-        #return products or show Error 404
+        #return products of the clicked category
         products = Product.objects.filter(category=categories)
     else:
-         products = Product.objects.all()
-         categories = Category.objects.all()
-         
-    context  ={'products':products,'categories':categories}
+        # else display all products
+        products = Product.objects.all()
+
+    # in both cases display all categories    
+    categories = Category.objects.all()
+
+    
+    context  ={'categories':categories,'products':products,}
     return render(response, 'home.html',context)
 
 
