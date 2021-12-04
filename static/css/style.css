@@ -12,6 +12,7 @@ body {
   
     font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
+    
 }
 
 /* Add a black background color to the top navigation bar */
@@ -19,6 +20,7 @@ body {
   overflow: hidden;
   background-color: #AA2E37;
   width: 100%;
+  font-weight: 600;
 }
 
 /* Style the links inside the navigation bar */

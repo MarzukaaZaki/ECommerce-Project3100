@@ -1,11 +1,9 @@
-/* Three image containers (use 25% for four, and 50% for two, etc) */
 .category-column {
     float: left;
     width: 14%;
     padding: 1px;
   }
   
-  /* Clear floats after image containers */
   .category-row::after {
     content: "";
     clear: both;
@@ -13,6 +11,7 @@
   }
   .category-image{
       border-radius: 50%;
+      border : 1px solid black
   }
   
   .category-figcaption{

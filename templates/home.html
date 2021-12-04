@@ -22,17 +22,17 @@
 
     
        <!-- Show product cards -->
-<h1 class = "heading">{% if category %}{{category.category_name}} {% else %} AVAILABLE NOW {% endif %}</h1>
+<h1 class = "heading"> AVAILABLE NOW </h1>
 <div style="padding: 70px;">
 
     <div class="row">
       {% for product in products  %}
       <div class="column">
         <div class="card">
-          <img src="{{product.product_img.url}}" alt="Picture" style ="height :200px; width:fit-content;">
+          <img src="{{product.product_img.url}}" alt="{{product.product_name}}" style ="height :200px; width:fit-content;">
           <h3>{{product.product_name}}</h3>
 
-          <p>{{product.product_desc}}</p>
+          <p>${{product.price}}</p>
           <p><button>Add to Cart <i class="fas fa-shopping-cart"></i></button></p>
         </div>
       </div>
@@ -40,6 +40,20 @@
         
     </div>
   </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+       {% if products.has_previous %}
+         <a href="?page=1">First</a>
+      
+         <a href="?page={{products.previous_page_number}}">&laquo; Previous</a>
+       {% endif %}
+       Page {{products.number}} of {{products.p.num_pages}}
+
+       {% if products.has_next %}
+          <a href="?page={{products.next_page_number}}">&raquo; Next</a>
+          <a href="?page={{products.p.num_pages}}">Last</a>
+       {% endif %}
     
 {% endblock %}    
     
