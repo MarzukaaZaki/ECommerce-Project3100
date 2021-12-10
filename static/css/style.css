@@ -48,7 +48,7 @@ body {
   color: white;
 }
 
-/* Style the search box inside the navigation bar */
+/* Style the search box inside the navigation bar*/ 
 .topnav input[type=text] {
   
   border: none;
@@ -231,4 +231,22 @@ button:hover {
   
 
 }
+/*product detail style
+.product-detail{
+  padding: 70px;
+  font-size: 20px;
+  border:1px solid#ccc
+}
+.product-detail img {
+
+    float: left;
+    
+   
+  }
+.product-detail h2,p,button {
+    width: 30%;
+    float: right;
+    
+  }
+  */
 

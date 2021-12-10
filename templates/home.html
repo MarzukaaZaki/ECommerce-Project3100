@@ -29,11 +29,11 @@
       {% for product in products  %}
       <div class="column">
         <div class="card">
-          <img src="{{product.product_img.url}}" alt="{{product.product_name}}" style ="height :200px; width:fit-content;">
+          <a href="{{product.get_product_url}}" target="_blank"><img src="{{product.product_img.url}}" alt="{{product.product_name}}" style ="height :200px; width:fit-content;"></a>
           <h3>{{product.product_name}}</h3>
 
-          <p>${{product.price}}</p>
-          <p><button>Add to Cart <i class="fas fa-shopping-cart"></i></button></p>
+          <p class="price">${{product.price}}</p>
+          <p><button>View Product</button></p>
         </div>
       </div>
       {% endfor %}
@@ -41,7 +41,11 @@
     </div>
   </div>
 
-  <!-- Pagination -->
+  
+  
+  
+              <!-- Pagination -->
+              
   <div class="pagination">
        {% if products.has_previous %}
          <a href="?page=1">First</a>
@@ -54,6 +58,10 @@
           <a href="?page={{products.next_page_number}}">&raquo; Next</a>
           <a href="?page={{products.p.num_pages}}">Last</a>
        {% endif %}
+       <br>
+       <br>
+
+     
     
 {% endblock %}    
     

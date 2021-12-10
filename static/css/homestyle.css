@@ -145,4 +145,7 @@ align-content: center;
   color: black;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {
+  
+  background-color: #ddd;}
+

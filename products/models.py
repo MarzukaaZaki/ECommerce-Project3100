@@ -1,5 +1,6 @@
-from categories.models import Category
 from django.db import models
+from categories.models import Category
+from django.urls import reverse
 
 # Create your models here.
 
@@ -14,4 +15,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+    # product url for single product view
+    def get_product_url(self):
+        return reverse('shop:product_detail',args=[self.category.slug,self.product_slug])
     
