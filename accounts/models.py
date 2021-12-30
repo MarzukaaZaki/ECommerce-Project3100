@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 from django.db.models.fields import DateTimeField
-# Create your models here.
+
 # Manager of the custom user model
 # Uses email as the unique identifier instead of username
 class MyAccountManager(BaseUserManager):
@@ -40,6 +40,7 @@ class MyAccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
+    # Fields for the user model
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField(verbose_name ='email', max_length = 60,unique = True)
@@ -51,7 +52,7 @@ class Account(AbstractBaseUser):
     is_staff = models.BooleanField(default = False)
     is_superuser = models.BooleanField(default = False)
 
-
+    # setting email to uniquely identify a user 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username','first_name','last_name']
 
@@ -59,9 +60,12 @@ class Account(AbstractBaseUser):
     objects = MyAccountManager()
 
     # methods
+
+    # display name for objects of user model will be email
     def __str__(self):
         return self.email
-    #    
+
+    # if a user is admin then he/she will have all permissions   
     def has_perm(self,perm,obj = None):
         return self.is_admin
 

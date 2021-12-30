@@ -7,6 +7,7 @@
 <h1 class = "heading"> SHOP BY CATEGORY</h1>
       <div style="padding: 70px;">
         <div class="category-row">
+<!-- Looping through the context variable to get all the categories-->
           {% for item in categories %}
           <div class="category-column">
             <a href="{{ item.get_absolute_url }}"><img src="{{item.category_img.url}}" alt="{{item.category_name}}" style="height: 120px;width:fit-content" class = "category-image"></a>
@@ -26,6 +27,7 @@
 <div style="padding: 70px;">
 
     <div class="row">
+<!-- Looping through the context variable to get all the products-->
       {% for product in products  %}
       <div class="column">
         <div class="card">
@@ -45,15 +47,17 @@
   
   
               <!-- Pagination -->
-              
-  <div class="pagination">
+        <div class="pagination">
+    <!-- Navigate to first and previous pages-->
        {% if products.has_previous %}
          <a href="?page=1">First</a>
-      
+      <!--Adjust link to previous page-->
          <a href="?page={{products.previous_page_number}}">&laquo; Previous</a>
        {% endif %}
-       Page {{products.number}} of {{products.p.num_pages}}
+      <!-- Show current page number--> 
+       Page {{products.number}} 
 
+      <!-- Navigate to next pages if any -->
        {% if products.has_next %}
           <a href="?page={{products.next_page_number}}">&raquo; Next</a>
           <a href="?page={{products.p.num_pages}}">Last</a>

@@ -6,35 +6,36 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.views.generic import TemplateView
 
-# Create your views here.
+# Home page
 def homePageView(response, category_slug = None):
     products = None
     
-    # if the user clicks on a category
+    # If the user clicks on a category
     if category_slug:
 
-        #return categories or show Error 404
+        # Fetches categories or show Error 404
         categories = get_object_or_404(Category,slug =category_slug)
 
-        #return products of the clicked category
+        # Fetches products of the clicked category
         products = Product.objects.filter(category=categories)
     
-        # pagination of products
+        # Limit to 6 products per page
         p = Paginator(products,6)
     
     else:
     
-        # else display all products
+        # If no category is selected, display all the products
         products = Product.objects.all()
         
-        # pagination of products
+        # Limit to 9 products per page
         p = Paginator(products,9)
     
-    # in both cases display all categories    
+    # In both cases display all the categories    
     categories = Category.objects.all()
     
-    # set the links to each page number 
+    # Set the links to each page number 
     page_number = response.GET.get('page')
+    # And the products that will be displayed there
     paged_products = p.get_page(page_number)
 
     # context dictionary

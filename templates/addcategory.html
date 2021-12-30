@@ -1,0 +1,18 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+<div style="padding : 100px;">
+    <h2>Create New Category</h2>
+    <hr>
+    <br>
+    <form method='POST'>{% csrf_token %} 
+        <table>
+            {{form.as_table}}
+    
+        </table>
+        <br>
+        <button type = 'submit'>Save Changes</button>
+    </form>
+</div>
+
+{% endblock content %}

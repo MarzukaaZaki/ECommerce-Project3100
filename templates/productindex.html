@@ -1,0 +1,33 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<div style ="padding: 80px">
+        <h2>LIST OF PRODUCTS</h2>
+        
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>NAME OF PRODUCT</th>
+                    <th>PRICE</th>
+                    <th>CATEGORY</th>
+                    <th>CHOOSE ACTION</th>
+                   
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in all_products %}
+                <tr>
+                    <td>{{item.product_name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.category}}</td>
+                    <td><a href = "{% url 'products:productdetails' item.id %}"><i class="fas fa-eye "></i></a><a href = "{% url 'products:deleteproduct' item.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
+                </tr>
+                
+                {%  endfor %}
+                
+            </tbody>
+        </table>
+        <br>
+       <i class="fas fa-plus-circle"></i><a href ="{% url 'products:addproduct' %}"> <u>CREATE A NEW PRODUCT </u></a> 
+    </div>
+{% endblock content %} 
